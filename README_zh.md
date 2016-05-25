@@ -1,4 +1,4 @@
-# 矩阵（Matrix）
+# 矩阵（Matrix） ![](https://travis-ci.org/Clarence-pan/Matrix.svg)
 矩阵（Matrix）——又是一个操作数组（特别是二维数组）的工具。
 
 # 使用说明
