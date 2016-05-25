@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/../Matrix.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 if (!function_exists('dump')){
     function dump($var){

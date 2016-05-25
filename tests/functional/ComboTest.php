@@ -2,7 +2,7 @@
 
 
 namespace tests\functional;
-use \Matrix;
+use Clarence\Matrix\Matrix;
 
 /**
  * 组合测试

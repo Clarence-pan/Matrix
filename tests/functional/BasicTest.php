@@ -1,7 +1,7 @@
 <?php
 namespace tests\functional;
 
-use \Matrix;
+use Clarence\Matrix\Matrix;
 
 
 /**
@@ -470,7 +470,7 @@ class BasicTest extends \PHPUnit_Framework_TestCase {
             );
         }, range(0, TEST_MAX_ARRAY_SIZE));
 
-        $data = Matrix::from($dataSource)->orderBy(array('productId' => array_merge(array('list:'), range(0, TEST_MAX_ARRAY_SIZE))))->toArray();
+        $data = Matrix::from($dataSource)->orderBy(array('productId' => Matrix::from(range(0, TEST_MAX_ARRAY_SIZE))))->toArray();
         $this->assertEquals($expected, $data);
     }
 
@@ -482,7 +482,7 @@ class BasicTest extends \PHPUnit_Framework_TestCase {
             array('gender' => 'male'),
         );
 
-        $data = Matrix::from($dataSource)->orderBy(array('gender' => array('list:', 'male', 'female')))->toArray();
+        $data = Matrix::from($dataSource)->orderBy(array('gender' => Matrix::from(['male', 'female'])))->toArray();
 
         $expected = array(
             array('gender' => 'male'),
@@ -490,29 +490,6 @@ class BasicTest extends \PHPUnit_Framework_TestCase {
             array('gender' => 'femazzz'),
         );
         $this->assertEquals($expected, $data);
-    }
-
-    public function test_orderBy_list_in_incorrect_form() {
-        $dataSource = array_map(function ($i) {
-            return array(
-                'productId' => $i,
-                'name' => 'test' . $i,
-                'otherFields' => 'other' . $i
-            );
-        }, range(0, TEST_MAX_ARRAY_SIZE));
-
-        shuffle($dataSource);
-
-        $expected = array_map(function ($i) {
-            return array(
-                'productId' => $i,
-                'name' => 'test' . $i,
-                'otherFields' => 'other' . $i
-            );
-        }, range(0, TEST_MAX_ARRAY_SIZE));
-
-        $data = Matrix::from($dataSource)->orderBy(array('productId' => array_merge(array('list'), range(0, TEST_MAX_ARRAY_SIZE))))->toArray();
-        $this->assertNotEquals($expected, $data);
     }
 
     public function test_isAll(){

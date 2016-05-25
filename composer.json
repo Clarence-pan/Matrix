@@ -1,0 +1,23 @@
+{
+    "name": "clarence/matrix",
+    "description": "Matrix -- a simple way to write fluent codes handing 2D data -- handling array of array is so easy!",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Clarence",
+            "email": "clarence-pan@foxmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Clarence\\Matrix\\": "src"
+        }
+    }
+}
