@@ -447,8 +447,6 @@ class BasicTest extends \PHPUnit_Framework_TestCase {
         }
 
         $this->assertEquals(count($data), count($query));
-
-        reset($query);
     }
 
     public function test_orderBy_list_in_correct_form() {
